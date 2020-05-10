@@ -97,6 +97,53 @@ const isKid = persons.some((person) => person.age <= 15);
 
 4. [สร้าง Higher-Order Functions ด้วยตนเอง](https://www.youtube.com/watch?v=FbeLpM6V9pA&list=PLOgiLP3tCaPUDsXEB-3dGGO3oxGDRMmQe&index=5)
 
+```JavaScript
+const persons = [
+  { name: "John", age: 17 },
+  { name: "Jane", age: 10 },
+  { name: "Jim", age: 15 },
+];
+
+/** myFilter **/
+
+  Array.prototype.myFilter = function (callback) {
+    const result = [];
+    for (let i = 0; i < this.length; i++) {
+      const element = this[i];
+      if (callback(element)) {
+        result.push(element);
+      }
+    }
+    return result;
+  }
+  const kids = persons.myFilter(person => person.age <= 15)
+  console.log('Kids: ', kids)
+  // Kids:  (2) [{…}, {…}]
+
+
+/** myMap **/
+  Array.prototype.myMap = function (callback) {
+    const result = [];
+    for (let i = 0; i < this.length; i++) {
+      const element = this[i];
+      result.push(callback(element));
+    }
+    return result;
+  }
+
+  const olderPersons = persons.myMap(person => ({
+    ...person,
+    age: person.age * 2
+  }));
+  console.log('Older persons: ', olderPersons)
+  // Older persons:  [
+  //  0: {name: "John", age: 34},
+  //  1: {name: "Jane", age: 20},
+  //  2: {name: "Jim", age: 30}
+  // ]
+
+```
+
 5. [Closures คืออะไร](https://www.youtube.com/watch?v=Qb1bHuyc4XI&list=PLOgiLP3tCaPUDsXEB-3dGGO3oxGDRMmQe&index=6)
 
 ```JavaScript
