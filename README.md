@@ -99,6 +99,56 @@ const isKid = persons.some((person) => person.age <= 15);
 
 5. [Closures คืออะไร](https://www.youtube.com/watch?v=Qb1bHuyc4XI&list=PLOgiLP3tCaPUDsXEB-3dGGO3oxGDRMmQe&index=6)
 
+```JavaScript
+/** What's Clousures? **/
+
+  function outer() {
+    const name = 'Outer';
+    return function inner() {
+      console.log('Outer name: ', name);
+    }
+  }
+  const innerFunction = outer()
+  innerFunction();
+  // Outer name:  Outer
+```
+
+```JavaScript
+/** Data privacy **/
+
+  function createTimes() {
+    let counter = 0;
+    return function times() {
+      counter += 1;
+      console.log('Counter: ', counter);
+    }
+  }
+  const times = createTimes();
+  times();
+  times();
+  times();
+  // Counter:  1
+  // Counter:  2
+  // Counter:  3
+```
+
+```JavaScript
+/** Stateful function **/
+
+  function createAdd(a) {
+    return function(b) {
+      return a + b
+    }
+  }
+  const addFive = createAdd(5);
+  const addTen = createAdd(10);
+
+  console.log('Add Five: ', addFive(10))
+  console.log('Add Ten: ', addTen(10))
+  // Add Five:  15
+  // Add Ten:  20
+```
+
 6. [Recursion คืออะไร](https://www.youtube.com/watch?v=tZ9ofxNNql0&list=PLOgiLP3tCaPUDsXEB-3dGGO3oxGDRMmQe&index=7)
 
 ```JavaScript
