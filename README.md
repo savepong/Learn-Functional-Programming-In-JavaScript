@@ -69,7 +69,7 @@ const totalAge = persons.reduce((age, person) => age + person.age, 0);
 // totalAge: 42
 ```
 
-2. [Higher-Order Functions คืออะไร (2/2)](https://www.youtube.com/watch?v=pEFbMsogLdo&list=PLOgiLP3tCaPUDsXEB-3dGGO3oxGDRMmQe&index=4)
+3. [Higher-Order Functions คืออะไร (2/2)](https://www.youtube.com/watch?v=pEFbMsogLdo&list=PLOgiLP3tCaPUDsXEB-3dGGO3oxGDRMmQe&index=4)
 
 ```JavaScript
 const persons = [
@@ -93,4 +93,39 @@ const janeIndex = persons.findIndex((person) => person.name === "Jane");
 
 const isKid = persons.some((person) => person.age <= 15);
 // isKid:  false
+```
+
+4. [สร้าง Higher-Order Functions ด้วยตนเอง](https://www.youtube.com/watch?v=FbeLpM6V9pA&list=PLOgiLP3tCaPUDsXEB-3dGGO3oxGDRMmQe&index=5)
+
+5. [Closures คืออะไร](https://www.youtube.com/watch?v=Qb1bHuyc4XI&list=PLOgiLP3tCaPUDsXEB-3dGGO3oxGDRMmQe&index=6)
+
+6. [Recursion คืออะไร](https://www.youtube.com/watch?v=tZ9ofxNNql0&list=PLOgiLP3tCaPUDsXEB-3dGGO3oxGDRMmQe&index=7)
+
+```JavaScript
+// f(1) = 1;
+// f(2) = 2 * f(1)
+// f(3) = 3 * f(2)
+// f(4) = 4 * f(3) => 24
+
+function factorial(n) {
+  if (n === 1) return 1;
+  return n * factorial(n - 1);
+}
+console.log('Factorial: ', factorial(4))
+// Factorial: 24
+```
+
+```JavaScript
+// c => c
+// bc => reverse(c) + b
+// abc => reverse(bc) + a
+
+function reverse(str) {
+  if (str.length === 1) return str;
+  const [firstCharacter] = str;
+  const remainingCharacters = str.substring(1)
+  return reverse(remainingCharacters) + firstCharacter
+}
+console.log('Reverse: ', reverse('abc'))
+// Reverse: cba
 ```
