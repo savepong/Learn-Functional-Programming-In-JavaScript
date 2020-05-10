@@ -1,6 +1,52 @@
 # Functional Programming in JavaScript
 
 1. [Functional Programming คืออะไร](https://www.youtube.com/watch?v=-iNKn5eBIak&list=PLOgiLP3tCaPUDsXEB-3dGGO3oxGDRMmQe&index=2)
+
+```JavaScript
+function addPure(a, b) {
+  return a + b;
+}
+console.log("Pure Function: ", addPure(1, 6));
+// Pure Function:  7
+
+
+const b = 6;
+function addSideEffect(a) {
+  return a + b;
+}
+console.log("Side Effect: ", addSideEffect(1));
+// Side Effect:  7
+
+
+const addAssigning = function (a, b) {
+  return a + b;
+};
+console.log("Assigning: ", addAssigning(1, 6));
+// Assigning:  7
+
+
+function addReturning(a, b) {
+  return function () {
+    return a + b;
+  };
+}
+const addTwoNumber = addReturning(1, 6);
+console.log("Returning: ", addTwoNumber());
+// Returning:  7
+
+
+function addNumber(a, b) {
+  return a + b;
+}
+
+function addAccepting(add, a, b) {
+  return add(a, b);
+}
+
+console.log("Accepting: ", addAccepting(addNumber, 1, 6));
+// Accepting:  7
+```
+
 2. [Higher-Order Functions คืออะไร (1/2)](https://www.youtube.com/watch?v=kapV19HYHzE&list=PLOgiLP3tCaPUDsXEB-3dGGO3oxGDRMmQe&index=3)
 
 ```JavaScript
